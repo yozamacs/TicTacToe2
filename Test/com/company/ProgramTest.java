@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class ProgramTest {
 
@@ -19,6 +20,7 @@ public class ProgramTest {
         player1 = mock(Player.class);
         player2 = mock(Player.class);
         program = new Program(board, player1, player2);
+        when(board.isFull()).thenReturn(false);
 
     }
 

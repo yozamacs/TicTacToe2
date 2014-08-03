@@ -34,8 +34,17 @@ public class BoardTest {
 
     @Test
     public void shouldPreventMarkingInTakenSpotWhenMarkBoardIsCalledOnTakenSpot(){
-        board.mark("1","X");
-        board.mark("1","X");
-        verify(out).println("Invalid move");
+        String[] positions = {" "," ","X "," "," "," "," "," "," "};
+        Board markedBoard = new Board(out, positions);
+        markedBoard.mark("3","O");
+        verify(out).println("Location already taken");
+    }
+
+    @Test
+    public void whenBoardIsFullShouldPrintGameIsADraw(){
+        String[] positions = {"O","X","X ","X"," O"," X","X ","O ","O "};
+        Board fullBoard = new Board(out, positions);
+        fullBoard.isFull();
+        verify(out).println("Game is a draw");
     }
 }

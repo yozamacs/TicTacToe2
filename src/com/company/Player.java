@@ -25,7 +25,13 @@ public class Player {
         out.println(title + " enter a location and symbol separated by the return key to play");
         String position = getInput();
         String symbol = getInput();
-        board.mark(position, symbol);
+        boolean moveIsValid = board.mark(position, symbol);
+        while(!moveIsValid) {
+            out.println("Try Again");
+            position = getInput();
+            symbol = getInput();
+            moveIsValid = board.mark(position, symbol);
+        }
     }
 
     private String getInput() {

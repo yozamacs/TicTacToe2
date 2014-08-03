@@ -16,8 +16,10 @@ public class Program {
 
     public void start() {
         board.draw();
-        player1.move();
-        player2.move();
+        while(!board.isFull()) {
+            player1.move();
+            player2.move();
+        }
     }
 
 }
