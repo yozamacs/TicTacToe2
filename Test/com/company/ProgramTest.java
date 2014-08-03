@@ -20,7 +20,7 @@ public class ProgramTest {
         player1 = mock(Player.class);
         player2 = mock(Player.class);
         program = new Program(board, player1, player2);
-        when(board.isFull()).thenReturn(false);
+        when(board.isFull()).thenReturn(false).thenReturn(true);
 
     }
 
