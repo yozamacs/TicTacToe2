@@ -47,4 +47,12 @@ public class BoardTest {
         fullBoard.isFull();
         verify(out).println("Game is a draw");
     }
+
+    @Test
+    public void whenBoardHasWinShouldReturnTrue() {
+        String[] positions = {"X","O","O","X","O","X","X","O","O"};
+        Board winBoard = new Board(out, positions);
+        winBoard.hasWin();
+        verify(out).println("Player 1 wins");
+    }
 }

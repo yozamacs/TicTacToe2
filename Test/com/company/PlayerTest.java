@@ -19,8 +19,8 @@ public class PlayerTest {
         Board board = mock(Board.class);
         BufferedReader reader = mock(BufferedReader.class);
         PrintStream out = mock(PrintStream.class);
-        Player player = new Player(board, reader, out, "player");
-        when(reader.readLine()).thenReturn("1").thenReturn("X");
+        Player player = new Player(board, reader, out, "X","player" );
+        when(reader.readLine()).thenReturn("1");
         when(board.mark("1","X")).thenReturn(true);
         player.move();
         verify(board).mark("1","X");

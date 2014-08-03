@@ -16,8 +16,12 @@ public class Program {
 
     public void start() {
         board.draw();
-        while(!board.isFull()) {
+
+        while(!board.isFull()&&!board.hasWin()) {
             player1.move();
+            if(board.isFull()||board.hasWin()){
+                break;
+            }
             player2.move();
         }
     }

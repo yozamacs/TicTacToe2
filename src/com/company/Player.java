@@ -11,24 +11,24 @@ public class Player {
     private Board board;
     private BufferedReader reader;
     private PrintStream out;
+    private String symbol;
     private String title;
 
 
-    public Player(Board board, BufferedReader reader, PrintStream out, String title) {
+    public Player(Board board, BufferedReader reader, PrintStream out, String symbol, String title) {
         this.board = board;
         this.reader = reader;
         this.out = out;
+        this.symbol = symbol;
         this.title = title;
     }
 
     public void move() {
-        out.println(title + " enter a location and symbol separated by the return key to play");
+        out.println(title + " enter a location between 1 and 9");
         String position = getInput();
-        String symbol = getInput();
         boolean moveIsValid = board.mark(position, symbol);
         while(!moveIsValid) {
             out.println("Try Again");
-            position = getInput();
             symbol = getInput();
             moveIsValid = board.mark(position, symbol);
         }
